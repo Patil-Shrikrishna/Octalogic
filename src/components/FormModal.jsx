@@ -1,6 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import PropTypes from "prop-types";
 import {
   Form,
   FormControl,
@@ -11,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import DropDown from "./DropDown";
 import ButtonComponent from "./ButtonComponent";
+import { Button } from "./ui/button";
 
 const formSchema = z.object({
   courseName: z.string().min(2, {
@@ -18,14 +20,14 @@ const formSchema = z.object({
   }),
   description: z.string(),
   instructor: z.string(),
-  price: z.number().positive({
-    message: "Price must be a positive number.",
+  price: z.string().refine((value) => !isNaN(parseFloat(value)), {
+    message: "Price must be a number.",
   }),
   instrument: z.string(),
-  dayOfWeek: z.string(),
+  dayOfWeek: z.number(),
 });
 
-function FormModal() {
+function FormModal({ closeModal }) {
   const instrument = [
     "Guitar",
     "Drum set",
@@ -49,9 +51,14 @@ function FormModal() {
     },
   });
 
-  function onSubmit(values) {
+  const onSubmit = (values) => {
     console.log(values);
-  }
+    closeModal();
+  };
+
+  const handleCancel = () => {
+    closeModal();
+  };
 
   return (
     <div className="flex gap-1 w-1/2 justify-center items-center rounded-md p-4 bg-white ">
@@ -124,8 +131,10 @@ function FormModal() {
             <ButtonComponent
               name="Cancel"
               className="bg-white text-black text-xl py-6 px-8"
+              onClick={handleCancel}
             />
             <ButtonComponent
+              type="submit"
               name="Add Course"
               className="bg-[#FEC0CA] text-black text-xl py-6 px-8"
             />
@@ -135,4 +144,7 @@ function FormModal() {
     </div>
   );
 }
+FormModal.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+};
 export default FormModal;

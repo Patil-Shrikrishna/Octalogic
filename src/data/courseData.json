@@ -17,7 +17,7 @@
         "instructor": "John Doe",
         "instrument": "Piano",
         "dayOfWeek": "Monday",
-        "numberOfWeek": 12,
+        
         "numberOfStudents": 15,
         "price": 200,
         "status": "Active",
@@ -29,7 +29,7 @@
         "instructor": "Jane Smith",
         "instrument": "Guitar",
         "dayOfWeek": "Wednesday",
-        "numberOfWeek": 10,
+        
         "numberOfStudents": 10,
         "price": 180,
         "status": "Closed",
@@ -41,7 +41,7 @@
         "instructor": "Alice Johnson",
         "instrument": "Violin",
         "dayOfWeek": "Friday",
-        "numberOfWeek": 8,
+        
         "numberOfStudents": 12,
         "price": 220,
         "status": "Archieved",
@@ -53,7 +53,7 @@
         "instructor": "Bob Williams",
         "instrument": "Drums",
         "dayOfWeek": "Thursday",
-        "numberOfWeek": 10,
+        
         "numberOfStudents": 8,
         "price": 250,
         "status": "Active",

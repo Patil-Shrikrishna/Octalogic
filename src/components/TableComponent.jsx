@@ -22,7 +22,7 @@ function TableComponent({ tableHeaders, data }) {
       </TableHeader>
       <TableBody>
         {data.map((item, index) => (
-          <TableRow key={index}>
+          <TableRow key={index} className="">
             {Object.entries(item).map(([key, value]) => (
               <TableCell key={key} className="font-medium">
                 {value}

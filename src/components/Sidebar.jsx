@@ -2,6 +2,8 @@ import logo from "../assets/Logo.png";
 import logout from "../assets/logout.png";
 import home from "../assets/home.png";
 import courses from "../assets/courses.png";
+import { Link } from "react-router-dom";
+
 const Sidebar = () => {
   return (
     <div className="bg-white px-4 h-full min-h-screen flex flex-col gap-4 justify-between">
@@ -14,14 +16,18 @@ const Sidebar = () => {
         <div className=" flex flex-col  justify-between gap-4 ">
           {/* top */}
           <div className="flex  flex-col gap-4">
-            <div className="flex flex-col justify-center items-center rounded-md bg-[#FEDFE1] text-[#901E75] p-2 h-[60px] ">
-              <img src={home} className="w-6" />
-              <p>Home</p>
-            </div>
-            <div className="flex flex-col justify-center items-center rounded-md bg-[#E5E7EB] text-[#83858B] p-2 h-[60px] ">
-              <img src={courses} className="w-6" />
-              <p>Courses</p>
-            </div>
+            <Link to="/">
+              <div className="flex flex-col justify-center items-center rounded-md bg-[#FEDFE1] text-[#901E75] p-2 h-[60px] ">
+                <img src={home} className="w-6" />
+                <p>Home</p>
+              </div>
+            </Link>
+            <Link to="/courses">
+              <div className="flex flex-col justify-center items-center rounded-md bg-[#E5E7EB] text-[#83858B] p-2 h-[60px] ">
+                <img src={courses} className="w-6" />
+                <p>Courses</p>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
