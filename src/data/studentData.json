@@ -1,0 +1,93 @@
+{
+
+  "studentHeaders" : [
+    "Reg. No",
+    "F. Name",
+    "L. Name",
+    "course #",
+    "Total fees",
+    "Reg. Date"
+  ],
+    "bestStudents": [
+      {
+        "registrationNumber": "REG001",
+        "firstName": "John",
+        "lastName": "Doe",
+        "courseNumber": "COURSE001",
+        "totalFees": 5000,
+        "registrationDate": "2022-04-15"
+      },
+      {
+        "registrationNumber": "REG002",
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "courseNumber": "COURSE002",
+        "totalFees": 4500,
+        "registrationDate": "2022-04-14"
+      },
+      {
+        "registrationNumber": "REG003",
+        "firstName": "Alice",
+        "lastName": "Johnson",
+        "courseNumber": "COURSE003",
+        "totalFees": 4800,
+        "registrationDate": "2022-04-13"
+      },
+      {
+        "registrationNumber": "REG004",
+        "firstName": "Bob",
+        "lastName": "Williams",
+        "courseNumber": "COURSE004",
+        "totalFees": 5200,
+        "registrationDate": "2022-04-12"
+      },
+      {
+        "registrationNumber": "REG005",
+        "firstName": "Emily",
+        "lastName": "Brown",
+        "courseNumber": "COURSE005",
+        "totalFees": 4800,
+        "registrationDate": "2022-04-11"
+      },
+      {
+        "registrationNumber": "REG006",
+        "firstName": "Michael",
+        "lastName": "Johnson",
+        "courseNumber": "COURSE006",
+        "totalFees": 4500,
+        "registrationDate": "2022-04-10"
+      },
+      {
+        "registrationNumber": "REG007",
+        "firstName": "Sophia",
+        "lastName": "Miller",
+        "courseNumber": "COURSE007",
+        "totalFees": 5300,
+        "registrationDate": "2022-04-09"
+      },
+      {
+        "registrationNumber": "REG008",
+        "firstName": "William",
+        "lastName": "Davis",
+        "courseNumber": "COURSE008",
+        "totalFees": 5100,
+        "registrationDate": "2022-04-08"
+      },
+      {
+        "registrationNumber": "REG009",
+        "firstName": "Olivia",
+        "lastName": "Wilson",
+        "courseNumber": "COURSE009",
+        "totalFees": 5500,
+        "registrationDate": "2022-04-07"
+      },
+      {
+        "registrationNumber": "REG010",
+        "firstName": "Ethan",
+        "lastName": "Taylor",
+        "courseNumber": "COURSE010",
+        "totalFees": 4700,
+        "registrationDate": "2022-04-06"
+      }
+    ]
+  }

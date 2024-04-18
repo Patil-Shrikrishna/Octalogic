@@ -1,0 +1,81 @@
+{
+  "enrollmentHeaders" : [
+    "Enr. No",
+    "S. Name",
+    "C. Name",
+    "fees",
+    "Enr. Date"
+  ],
+   "latestEnrollment": [
+      {
+        "enrollmentNumber": "ENR001",
+        "studentName": "John Doe",
+        "courseName": "Piano",
+        "fees": 5000,
+        "enrollmentDate": "2022-04-15"
+      },
+      {
+        "enrollmentNumber": "ENR002",
+        "studentName": "Jane Smith",
+        "courseName": "Guitar",
+        "fees": 4500,
+        "enrollmentDate": "2022-04-14"
+      },
+      {
+        "enrollmentNumber": "ENR003",
+        "studentName": "Alice Johnson",
+        "courseName": "Violin",
+        "fees": 4800,
+        "enrollmentDate": "2022-04-13"
+      },
+      {
+        "enrollmentNumber": "ENR004",
+        "studentName": "Bob Williams",
+        "courseName": "Drums",
+        "fees": 5200,
+        "enrollmentDate": "2022-04-12"
+      },
+      {
+        "enrollmentNumber": "ENR005",
+        "studentName": "Emily Brown",
+        "courseName": "Saxophone",
+        "fees": 4800,
+        "enrollmentDate": "2022-04-11"
+      },
+      {
+        "enrollmentNumber": "ENR006",
+        "studentName": "Michael Johnson",
+        "courseName": "Flute",
+        "fees": 4500,
+        "enrollmentDate": "2022-04-10"
+      },
+      {
+        "enrollmentNumber": "ENR007",
+        "studentName": "Sophia Miller",
+        "courseName": "Cello",
+        "fees": 5300,
+        "enrollmentDate": "2022-04-09"
+      },
+      {
+        "enrollmentNumber": "ENR008",
+        "studentName": "William Davis",
+        "courseName": "Trumpet",
+        "fees": 5100,
+        "enrollmentDate": "2022-04-08"
+      },
+      {
+        "enrollmentNumber": "ENR009",
+        "studentName": "Olivia Wilson",
+        "courseName": "Harp",
+        "fees": 5500,
+        "enrollmentDate": "2022-04-07"
+      },
+      {
+        "enrollmentNumber": "ENR010",
+        "studentName": "Ethan Taylor",
+        "courseName": "Clarinet",
+        "fees": 4700,
+        "enrollmentDate": "2022-04-06"
+      }
+    ]
+  }
