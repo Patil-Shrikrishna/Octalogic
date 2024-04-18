@@ -1,9 +1,13 @@
 import DataCard from "./components/DataCard";
 import Sidebar from "./components/Sidebar";
-import TableComponent from "./components/TableComponent";
-import enrollmentData from "./data/enrollmentData.json";
-import studentData from "./data/studentData.json";
-import courseData from "./data/courseData.json";
+// import TableComponent from "./components/TableComponent";
+// import enrollmentData from "./data/enrollmentData.json";
+// import studentData from "./data/studentData.json";
+// import courseData from "./data/courseData.json";
+// import ButtonComponent from "./components/ButtonComponent";
+// import add from "./assets/add.png";
+import CourseForm from "./components/FormModal";
+
 function App() {
   return (
     <div className="flex bg-[#E5E7EB]">
@@ -18,6 +22,16 @@ function App() {
           <DataCard stat="Guitar" desc="Best performing course" />
           <DataCard stat="Flute" desc="Worst performing course" />
         </div>
+        {/* <ButtonComponent
+          icon={add}
+          name="Add Course"
+          className="bg-[#FEC0CA] text-black text-xl py-10 px-10 shadow-md"
+        />
+
+        <ButtonComponent
+          name="Add Course"
+          className="bg-[#FEC0CA] text-black text-xl py-6 px-8"
+        />
         <TableComponent
           tableHeaders={enrollmentData.enrollmentHeaders}
           data={enrollmentData.latestEnrollment}
@@ -29,7 +43,10 @@ function App() {
         <TableComponent
           tableHeaders={courseData.courseHeaders}
           data={courseData.courseList}
-        />
+        /> */}
+        <div className="flex justify-center items-center ">
+          <CourseForm />
+        </div>
       </div>
     </div>
   );
