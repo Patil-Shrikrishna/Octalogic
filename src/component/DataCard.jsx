@@ -1,28 +1,38 @@
 import PropTypes from "prop-types";
 import profile from "../assets/profile.png";
-const DataCard = (props) => {
-  return (
-    <div className="bg-white rounded-md w-fit py-4 px-6">
-      {/* top */}
-      <div className="flex gap-4 justify-center items-center">
-        <div className="flex justify-center items-center bg-[#B2EECF] rounded-full w-10 h-10 p-2">
-          <img src={profile} className="h-4" />
-        </div>
-        <div>
-          <p className="text-xl font-bold">{props.number}</p>
-          <p className="text-sm">{props.desc}</p>
-        </div>
-      </div>
-      {/* bottom */}
-      <div className="flex justify-end">
-        <p>View</p>
-      </div>
-    </div>
-  );
-};
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import AvatarIcon from "./AvatarIcon";
 
+function DataCard({ stat, desc }) {
+  return (
+    <Card className="w-[350px]">
+      <CardHeader className="m-0 p-0 px-4 py-3">
+        <div className="flex">
+          <AvatarIcon src={profile} alt="Profile" />
+          <div className="flex flex-col ml-4">
+            <CardTitle>{stat}</CardTitle>
+            <CardDescription>{desc}</CardDescription>
+          </div>
+        </div>
+      </CardHeader>
+      <CardHeader className="m-0 p-0 px-4 pb-3">
+        <p
+          className="flex justify-end cursor-pointer"
+          onClick={() => console.log("view clicked")}
+        >
+          View
+        </p>
+      </CardHeader>
+    </Card>
+  );
+}
 DataCard.propTypes = {
-  number: PropTypes.string.isRequired,
+  stat: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
 };
 
