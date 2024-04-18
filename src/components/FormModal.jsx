@@ -12,7 +12,6 @@ import {
 import { Input } from "@/components/ui/input";
 import DropDown from "./DropDown";
 import ButtonComponent from "./ButtonComponent";
-import { Button } from "./ui/button";
 
 const formSchema = z.object({
   courseName: z.string().min(2, {
