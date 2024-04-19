@@ -10,7 +10,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import DropDown from "./DropDown";
 import ButtonComponent from "./ButtonComponent";
 
 const formSchema = z.object({
@@ -27,7 +26,7 @@ const formSchema = z.object({
 });
 
 function FormModal({ closeModal }) {
-  const instrument = [
+  const instrumentOptions = [
     "Guitar",
     "Drum set",
     "Singing",
@@ -37,7 +36,8 @@ function FormModal({ closeModal }) {
     "Saxophone",
     "Trumpet",
   ];
-  const daysOfWeek = ["1", "2", "3", "4", "5", "6", "7"];
+  const daysOfWeekOptions = [1, 2, 3, 4, 5, 6, 7];
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -50,7 +50,10 @@ function FormModal({ closeModal }) {
     },
   });
 
-  const onSubmit = (values) => {
+  const onSubmit = () => {
+    console.log("values");
+    // console.log({ values });
+    const values = form.getValues();
     console.log(values);
     closeModal();
   };
@@ -62,7 +65,7 @@ function FormModal({ closeModal }) {
   return (
     <div className="flex gap-1 w-1/2 justify-center items-center rounded-md p-4 bg-white ">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={onSubmit} className="space-y-8">
           <h1 className="text-3xl">Add Course</h1>
           <FormField
             className=""
@@ -103,16 +106,43 @@ function FormModal({ closeModal }) {
               </FormItem>
             )}
           />
-          <DropDown
-            name="Instrument"
-            menu={instrument}
-            className="w-full text-[#83858B] "
-          />
-          <DropDown
-            name="Days of the week"
-            menu={daysOfWeek}
-            className="w-full text-[#83858B] "
-          />
+          <div className="w-full text-gray-500 px-2 border border-gray-200 py-2 rounded-md">
+            <FormItem>
+              <FormControl>
+                <select
+                  {...form.register("instrument")}
+                  className=" flex justify-between w-full bg-transparent  text-gray-500 leading-tight focus:outline-none"
+                >
+                  <option value="">Instrument</option>
+                  {instrumentOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </div>
+
+          <div className="w-full text-gray-500 px-2 border border-gray-200 py-2 rounded-md">
+            <FormItem>
+              <FormControl>
+                <select
+                  {...form.register("dayOfWeek")}
+                  className=" flex justify-between w-full bg-transparent  text-gray-500 leading-tight focus:outline-none"
+                >
+                  <option value="">Day of the week</option>
+                  {daysOfWeekOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </div>
           <FormField
             className=""
             control={form.control}
@@ -133,9 +163,9 @@ function FormModal({ closeModal }) {
               onClick={handleCancel}
             />
             <ButtonComponent
-              type="submit"
               name="Add Course"
               className="bg-[#FEC0CA] text-black text-xl py-6 px-8"
+              type="submit"
             />
           </div>
         </form>
@@ -143,7 +173,9 @@ function FormModal({ closeModal }) {
     </div>
   );
 }
+
 FormModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
 };
+
 export default FormModal;
