@@ -1,0 +1,5 @@
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGOUT = "LOGOUT";
+export const ADD_COURSE = "ADD_COURSE";
+export const BEST_STUDENTS = "BEST_STUDENTS";
+export const LATEST_ENROLLMENTS = "LATEST_ENROLLMENTS";

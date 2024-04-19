@@ -1,10 +1,18 @@
 import logo from "../assets/Logo.png";
-import logout from "../assets/logout.png";
+import logoutIcon from "../assets/logout.png";
 import home from "../assets/home.png";
 import courses from "../assets/courses.png";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "./actions";
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <div className="bg-white px-4 h-full min-h-screen flex flex-col gap-4 justify-between">
       {/* logo */}
@@ -32,8 +40,11 @@ const Sidebar = () => {
         </div>
       </div>
       {/* bottom */}
-      <div className="flex flex-col  justify-center items-center text-[#83858B] ">
-        <img src={logout} className="w-6" />
+      <div
+        className="flex flex-col  justify-center items-center text-[#83858B]"
+        onClick={handleLogout}
+      >
+        <img src={logoutIcon} className="w-6" />
         <p>Log Out</p>
       </div>
     </div>

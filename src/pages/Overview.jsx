@@ -1,6 +1,8 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addEnrollmentData, addStudentData } from "../redux/actions";
 import enrollmentData from "../data/enrollmentData.json";
 import studentData from "../data/studentData.json";
-import courseData from "../data/courseData.json";
 import add from "../assets/add.png";
 import ButtonComponent from "@/components/ButtonComponent";
 import DataCard from "@/components/DataCard";
@@ -8,6 +10,25 @@ import Sidebar from "@/components/Sidebar";
 import TableComponent from "@/components/TableComponent";
 import FormModal from "@/components/FormModal";
 const Overview = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const addDataToStore = () => {
+      dispatch(addEnrollmentData(enrollmentData.latestEnrollment));
+      dispatch(addStudentData(studentData.bestStudents));
+
+      localStorage.setItem(
+        "enrollmentData",
+        JSON.stringify(enrollmentData.latestEnrollment)
+      );
+      localStorage.setItem(
+        "studentData",
+        JSON.stringify(studentData.bestStudents)
+      );
+    };
+
+    addDataToStore();
+  }, [dispatch]);
   return (
     <div className="flex bg-[#E5E7EB]">
       <div className="w-1/12 ">
@@ -39,10 +60,7 @@ const Overview = () => {
           tableHeaders={studentData.studentHeaders}
           data={studentData.bestStudents}
         />
-        <TableComponent
-          tableHeaders={courseData.courseHeaders}
-          data={courseData.courseList}
-        />
+
         <div className="flex justify-center items-center ">
           <FormModal />
         </div>
