@@ -52,10 +52,14 @@ const Overview = () => {
           <TableComponent
             tableHeaders={enrollmentData.enrollmentHeaders}
             data={enrollmentData.latestEnrollment}
+            rows={5}
+            category="enrollment"
           />
           <TableComponent
             tableHeaders={studentData.studentHeaders}
             data={studentData.bestStudents}
+            rows={5}
+            category="student"
           />
         </div>
       </div>

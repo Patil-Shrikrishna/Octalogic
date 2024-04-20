@@ -58,6 +58,53 @@
         "price": 250,
         "status": "Active",
         "actions": ["Edit course", "Close course","Archieve course"]
+      },{
+        "name": "Piano Course",
+        "description": "Learn to play the piano from scratch",
+        "instructor": "John Doe",
+        "instrument": "Piano",
+        "dayOfWeek": "Monday",
+        
+        "numberOfStudents": 15,
+        "price": 200,
+        "status": "Active",
+        "actions": ["Edit course", "Close course","Archieve course"]
+      },
+      {
+        "name": "Guitar Course",
+        "description": "Master the art of playing the guitar",
+        "instructor": "Jane Smith",
+        "instrument": "Guitar",
+        "dayOfWeek": "Wednesday",
+        
+        "numberOfStudents": 10,
+        "price": 180,
+        "status": "Closed",
+        "actions": ["Edit course", "Close course","Archieve course"]
+      },
+      {
+        "name": "Violin Course",
+        "description": "Learn classical violin techniques",
+        "instructor": "Alice Johnson",
+        "instrument": "Violin",
+        "dayOfWeek": "Friday",
+        
+        "numberOfStudents": 12,
+        "price": 220,
+        "status": "Archieved",
+        "actions": ["Edit course", "Close course","Archieve course"]
+      },
+      {
+        "name": "Drums Course",
+        "description": "Rock out with drumming lessons",
+        "instructor": "Bob Williams",
+        "instrument": "Drums",
+        "dayOfWeek": "Thursday",
+        
+        "numberOfStudents": 8,
+        "price": 250,
+        "status": "Active",
+        "actions": ["Edit course", "Close course","Archieve course"]
       }
     ]
   }

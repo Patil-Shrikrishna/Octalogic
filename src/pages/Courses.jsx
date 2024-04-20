@@ -46,6 +46,8 @@ const Courses = () => {
             <TableComponent
               tableHeaders={courseData.courseHeaders}
               data={coursesState}
+              rows={10}
+              category="course"
             />
           </div>
         )}
