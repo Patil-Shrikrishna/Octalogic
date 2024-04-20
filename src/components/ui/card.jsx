@@ -68,20 +68,20 @@ export {
 };
 
 Card.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 CardHeader.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 CardTitle.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 CardDescription.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 CardContent.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 CardFooter.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };

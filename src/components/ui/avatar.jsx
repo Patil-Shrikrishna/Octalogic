@@ -38,12 +38,12 @@ const AvatarFallback = React.forwardRef(({ className, ...props }, ref) => (
 ));
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 Avatar.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 AvatarImage.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 AvatarFallback.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 export { Avatar, AvatarImage, AvatarFallback };

@@ -1,6 +1,4 @@
-// dataReducer.js
-import * as types from "./actionTypes";
-
+import * as types from "../actions/actionTypes";
 const initialState = {
   bestStudents: [],
   latestEnrollments: [],

@@ -1,5 +1,5 @@
-import { useDispatch } from "react-redux";
-import { loginSuccess } from "./actions";
+import { useDispatch, useSelector } from "react-redux";
+import { loginSuccess } from "@/redux/actions/authActions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -11,7 +11,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import ButtonComponent from "./ButtonComponent";
+import ButtonComponent from "@/components/ButtonComponent";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Invalid email format" }),
@@ -22,6 +24,8 @@ const formSchema = z.object({
 
 function Login() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -29,60 +33,87 @@ function Login() {
       password: "",
     },
   });
+  const auth = useSelector((state) => state.auth);
 
   const onSubmit = (data) => {
     dispatch(loginSuccess(data.email));
+    sessionStorage.setItem("isAuthenticated", "true");
   };
+
+  useEffect(() => {
+    console.log("Auth state changed:", auth.isAuthenticated);
+    if (auth.isAuthenticated) {
+      console.log("Redirecting to overview page");
+      navigate("/overview");
+    }
+  }, [auth.isAuthenticated, navigate]);
 
   const handleCancel = () => {
     form.reset();
   };
 
   return (
-    <div className="flex gap-1 w-1/2 justify-center items-center rounded-md p-4 bg-white ">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <h1 className="text-3xl">Login</h1>
-          <FormField
-            className=""
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input type="email" placeholder="Email" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            className=""
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input type="password" placeholder="Password" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <div className="flex justify-end ">
-            <ButtonComponent
-              name="Cancel"
-              className="bg-white text-black text-xl py-6 px-8"
-              onClick={handleCancel}
+    <div className="w-full h-svh flex justify-center items-center">
+      <div className="flex w-fit rounded-md p-4 bg-white ">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <h1 className="text-3xl text-center font-bold text-[#B2EECF] text-shadow tracking-widest">
+              Music School
+            </h1>
+            <h1 className="text-3xl text-center">Login</h1>
+            <FormField
+              className=""
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input
+                      type="email"
+                      placeholder="Email"
+                      {...field}
+                      className="focus:outline-none"
+                      autoComplete="username"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-            <ButtonComponent
-              name="Login"
-              className="bg-[#FEC0CA] text-black text-xl py-6 px-8"
-              type="submit"
+            <FormField
+              className=""
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input
+                      type="password"
+                      placeholder="Password"
+                      {...field}
+                      className="focus:outline-none"
+                      autoComplete="current-password"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </div>
-        </form>
-      </Form>
+            <div className="flex justify-end ">
+              <ButtonComponent
+                name="Cancel"
+                className="bg-white text-black text-xl py-6 px-8"
+                onClick={handleCancel}
+              />
+              <ButtonComponent
+                name="Login"
+                className="bg-[#FEC0CA] text-black text-xl py-6 px-8"
+                type="submit"
+              />
+            </div>
+          </form>
+        </Form>
+      </div>
     </div>
   );
 }

@@ -9,6 +9,9 @@ import {
 import PropTypes from "prop-types";
 
 function TableComponent({ tableHeaders, data }) {
+  console.log("type of data.courses :", typeof data.courses);
+  console.log("data", data.courses);
+
   return (
     <Table>
       <TableHeader>
@@ -20,7 +23,7 @@ function TableComponent({ tableHeaders, data }) {
           ))}
         </TableRow>
       </TableHeader>
-      <TableBody>
+      <TableBody className="">
         {data.map((item, index) => (
           <TableRow key={index} className="">
             {Object.entries(item).map(([key, value]) => (
@@ -35,8 +38,8 @@ function TableComponent({ tableHeaders, data }) {
   );
 }
 TableComponent.propTypes = {
-  tableHeaders: PropTypes.array.isRequired,
-  data: PropTypes.array.isRequired,
+  tableHeaders: PropTypes.array,
+  data: PropTypes.array,
 };
 
 export default TableComponent;

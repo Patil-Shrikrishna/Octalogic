@@ -1,7 +1,7 @@
-import * as types from "./actionTypes";
-
+import * as types from "../actions/actionTypes";
+const storedCourses = JSON.parse(localStorage.getItem("courses"));
 const initialState = {
-  courses: [],
+  courses: storedCourses,
 };
 
 const courseReducer = (state = initialState, action) => {

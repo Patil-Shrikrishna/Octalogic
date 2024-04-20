@@ -4,14 +4,25 @@ import home from "../assets/home.png";
 import courses from "../assets/courses.png";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { logout } from "./actions";
+import { logout } from "../redux/actions/authActions";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(logout());
   };
+  useEffect(() => {
+    if (!auth.isAuthenticated) {
+      console.log("Logged out");
+      navigate("/");
+    }
+  }, [auth.isAuthenticated, navigate]);
 
   return (
     <div className="bg-white px-4 h-full min-h-screen flex flex-col gap-4 justify-between">

@@ -1,34 +1,40 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addEnrollmentData, addStudentData } from "../redux/actions";
+import { latestEnrollments } from "@/redux/actions/latestEnrollmentActions";
+import { bestStudents } from "@/redux/actions/bestStudentActions";
 import enrollmentData from "../data/enrollmentData.json";
 import studentData from "../data/studentData.json";
-import add from "../assets/add.png";
-import ButtonComponent from "@/components/ButtonComponent";
 import DataCard from "@/components/DataCard";
 import Sidebar from "@/components/Sidebar";
 import TableComponent from "@/components/TableComponent";
-import FormModal from "@/components/FormModal";
+
 const Overview = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     const addDataToStore = () => {
-      dispatch(addEnrollmentData(enrollmentData.latestEnrollment));
-      dispatch(addStudentData(studentData.bestStudents));
+      try {
+        // Dispatch actions to add data to Redux store
+        dispatch(latestEnrollments(enrollmentData.latestEnrollment));
+        dispatch(bestStudents(studentData.bestStudents));
 
-      localStorage.setItem(
-        "enrollmentData",
-        JSON.stringify(enrollmentData.latestEnrollment)
-      );
-      localStorage.setItem(
-        "studentData",
-        JSON.stringify(studentData.bestStudents)
-      );
+        // Store data in local storage
+        localStorage.setItem(
+          "enrollmentData",
+          JSON.stringify(enrollmentData.latestEnrollment)
+        );
+        localStorage.setItem(
+          "studentData",
+          JSON.stringify(studentData.bestStudents)
+        );
+      } catch (error) {
+        console.error("Error adding data to store:", error);
+      }
     };
 
     addDataToStore();
   }, [dispatch]);
+
   return (
     <div className="flex bg-[#E5E7EB]">
       <div className="w-1/12 ">
@@ -42,27 +48,15 @@ const Overview = () => {
           <DataCard stat="Guitar" desc="Best performing course" />
           <DataCard stat="Flute" desc="Worst performing course" />
         </div>
-        <ButtonComponent
-          icon={add}
-          name="Add Course"
-          className="bg-[#FEC0CA] text-black text-xl py-10 px-10 shadow-md"
-        />
-
-        <ButtonComponent
-          name="Add Course"
-          className="bg-[#FEC0CA] text-black text-xl py-6 px-8"
-        />
-        <TableComponent
-          tableHeaders={enrollmentData.enrollmentHeaders}
-          data={enrollmentData.latestEnrollment}
-        />
-        <TableComponent
-          tableHeaders={studentData.studentHeaders}
-          data={studentData.bestStudents}
-        />
-
-        <div className="flex justify-center items-center ">
-          <FormModal />
+        <div className="">
+          <TableComponent
+            tableHeaders={enrollmentData.enrollmentHeaders}
+            data={enrollmentData.latestEnrollment}
+          />
+          <TableComponent
+            tableHeaders={studentData.studentHeaders}
+            data={studentData.bestStudents}
+          />
         </div>
       </div>
     </div>
