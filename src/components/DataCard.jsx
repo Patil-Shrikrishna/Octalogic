@@ -10,7 +10,7 @@ import AvatarIcon from "./AvatarIcon";
 
 function DataCard({ stat, desc }) {
   return (
-    <Card className="w-fit whitespace-nowrap">
+    <Card className="w-full whitespace-nowrap">
       <CardHeader className="m-0 p-0 px-4 py-3">
         <div className="flex">
           <AvatarIcon src={profile} alt="Profile" />

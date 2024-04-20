@@ -45,7 +45,7 @@
         "numberOfStudents": 12,
         "price": 220,
         "status": "Archieved",
-        "actions": ["Edit course", "Close course","Archieve course"]
+        "actions": ["Unarchieve course"]
       },
       {
         "name": "Drums Course",
@@ -92,7 +92,7 @@
         "numberOfStudents": 12,
         "price": 220,
         "status": "Archieved",
-        "actions": ["Edit course", "Close course","Archieve course"]
+        "actions": ["Unarchieve course"]
       },
       {
         "name": "Drums Course",

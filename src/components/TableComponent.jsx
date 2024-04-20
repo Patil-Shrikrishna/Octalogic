@@ -8,7 +8,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import optionIcon from "../assets/options.png";
+import disabledOptionIcon from "../assets/disabledOptions.png";
 import PropTypes from "prop-types";
+import DropDown from "./DropDown";
 
 function TableComponent({ tableHeaders, data, rows, category }) {
   const [showAllRecords, setShowAllRecords] = useState(false);
@@ -20,8 +22,8 @@ function TableComponent({ tableHeaders, data, rows, category }) {
   };
 
   return (
-    <div>
-      <div className="flex justify-between">
+    <div className="">
+      <div className="flex justify-between mb-4">
         <p className="text-[#83858B] text-xl uppercase font-semibold">
           {category === "student" && "Best students"}
           {category === "enrollment" && "latest enrollments"}
@@ -30,9 +32,17 @@ function TableComponent({ tableHeaders, data, rows, category }) {
         {!showAllRecords && (
           <button
             onClick={toggleShowAllRecords}
-            className="text-[#901E75] text-xl font-semibold"
+            className="text-[#901E75] text-lg font-semibold"
           >
             View all {category}s
+          </button>
+        )}
+        {showAllRecords && (
+          <button
+            onClick={toggleShowAllRecords}
+            className="text-[#901E75] text-lg font-semibold"
+          >
+            Less
           </button>
         )}
       </div>
@@ -56,7 +66,17 @@ function TableComponent({ tableHeaders, data, rows, category }) {
                   value === "Closed" ||
                   value === "Archieved" ? (
                     Array.isArray(value) ? (
-                      <img src={optionIcon} className="h-4" />
+                      <>
+                        {item.status === "Closed" && (
+                          <DropDown options={value} src={disabledOptionIcon} />
+                        )}
+                        {item.status === "Active" && (
+                          <DropDown options={value} src={optionIcon} />
+                        )}
+                        {item.status === "Archieved" && (
+                          <DropDown options={value} src={optionIcon} />
+                        )}
+                      </>
                     ) : (
                       <>
                         {value === "Active" && (

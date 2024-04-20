@@ -72,7 +72,7 @@ function FormModal({ closeModal }) {
       dayOfWeek: data.dayOfWeek,
       numberOfStudents: 10,
       price: data.price,
-      status: "Open",
+      status: "Active",
       actions: ["Edit course", "Close course", "Archieve course"],
     };
 

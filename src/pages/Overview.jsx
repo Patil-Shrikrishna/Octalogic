@@ -36,19 +36,19 @@ const Overview = () => {
   }, [dispatch]);
 
   return (
-    <div className="flex bg-[#E5E7EB]">
-      <div className="w-1/12 ">
+    <div className="flex bg-[#E5E7EB] w-full  ">
+      <div className="h-screen fixed">
         <Sidebar />
       </div>
-      <div className="w-11/12">
-        <div className="flex gap-4">
+      <div className="flex flex-col w-full flex-grow ml-32 mx-8">
+        <div className="flex gap-4 w-full flex-grow mb-8">
           <DataCard stat="160" desc="total number of students" />
           <DataCard stat="12" desc="total number of courses" />
           <DataCard stat="$2000" desc="total amount earned" />
           <DataCard stat="Guitar" desc="Best performing course" />
           <DataCard stat="Flute" desc="Worst performing course" />
         </div>
-        <div className="">
+        <div className="w-full flex flex-col gap-10">
           <TableComponent
             tableHeaders={enrollmentData.enrollmentHeaders}
             data={enrollmentData.latestEnrollment}

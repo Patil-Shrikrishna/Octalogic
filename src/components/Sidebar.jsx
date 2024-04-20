@@ -25,7 +25,7 @@ const Sidebar = () => {
   }, [auth.isAuthenticated, navigate]);
 
   return (
-    <div className="bg-white px-4 h-full min-h-screen flex flex-col gap-4 justify-between">
+    <div className="bg-white px-4 min-h-screen flex flex-col gap-4 justify-between">
       {/* logo */}
       <div className="flex flex-col">
         <div className="flex justify-center items-center mb-4">

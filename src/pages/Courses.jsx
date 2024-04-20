@@ -37,10 +37,10 @@ const Courses = () => {
 
   return (
     <div className="flex bg-[#E5E7EB] w-full">
-      <div className="">
+      <div className="h-screen fixed">
         <Sidebar />
       </div>
-      <div className="w-full flex flex-col">
+      <div className="flex flex-col w-full flex-grow ml-32 m-8 ">
         {coursesState && (
           <div className="">
             <TableComponent
