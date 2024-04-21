@@ -36,14 +36,20 @@ function Login() {
   const auth = useSelector((state) => state.auth);
 
   const onSubmit = (data) => {
-    dispatch(loginSuccess(data.email));
-    sessionStorage.setItem("isAuthenticated", "true");
+    // Hard-coded email and password
+    const validEmail = "admin@octalogic.com";
+    const validPassword = "admin1234";
+
+    if (data.email === validEmail && data.password === validPassword) {
+      dispatch(loginSuccess(data.email));
+      sessionStorage.setItem("isAuthenticated", "true");
+    } else {
+      console.log("Invalid email or password");
+    }
   };
 
   useEffect(() => {
-    console.log("Auth state changed:", auth.isAuthenticated);
     if (auth.isAuthenticated) {
-      console.log("Redirecting to overview page");
       navigate("/overview");
     }
   }, [auth.isAuthenticated, navigate]);

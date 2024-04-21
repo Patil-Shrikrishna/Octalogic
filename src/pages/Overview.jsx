@@ -40,7 +40,8 @@ const Overview = () => {
       <div className="h-screen fixed">
         <Sidebar />
       </div>
-      <div className="flex flex-col w-full flex-grow ml-32 mx-8">
+      <div className="flex flex-col w-full flex-grow ml-32 mx-8 my-4">
+        <h1 className="text-3xl font-semibold mb-4 text-[#83858B]">Overview</h1>
         <div className="flex gap-4 w-full flex-grow mb-8">
           <DataCard stat="160" desc="total number of students" />
           <DataCard stat="12" desc="total number of courses" />

@@ -63,7 +63,6 @@ function FormModal({ closeModal }) {
     },
   });
   const onSubmit = async (data) => {
-    console.log("Form data:", data);
     const addCourseItem = {
       name: data.courseName,
       description: data.description,
@@ -79,11 +78,8 @@ function FormModal({ closeModal }) {
     const existingCourses = JSON.parse(localStorage.getItem("courses")) || [];
 
     const updatedCourses = [...existingCourses, addCourseItem];
-    console.log("updatedCourses", updatedCourses);
 
     localStorage.setItem("courses", JSON.stringify(updatedCourses));
-    const existingCourses1 = JSON.parse(localStorage.getItem("courses")) || [];
-    console.log("existingCourses1", existingCourses1);
 
     dispatch(addCourse(addCourseItem));
 

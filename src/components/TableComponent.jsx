@@ -11,14 +11,28 @@ import optionIcon from "../assets/options.png";
 import disabledOptionIcon from "../assets/disabledOptions.png";
 import PropTypes from "prop-types";
 import DropDown from "./DropDown";
-
+import { Input } from "./ui/input";
+import searchIcon from "../assets/search.png";
 function TableComponent({ tableHeaders, data, rows, category }) {
   const [showAllRecords, setShowAllRecords] = useState(false);
+  const [searchItem, setSearchItem] = useState("");
 
-  const visibleData = showAllRecords ? data : data.slice(0, rows);
+  const filteredCourses = data.filter((course) =>
+    course?.name?.toLowerCase().includes(searchItem?.toLowerCase())
+  );
+
+  const visibleData = searchItem
+    ? filteredCourses
+    : showAllRecords
+    ? data
+    : data.slice(0, rows);
 
   const toggleShowAllRecords = () => {
     setShowAllRecords((prev) => !prev);
+  };
+
+  const handleChange = (e) => {
+    setSearchItem(e.target.value);
   };
 
   return (
@@ -29,15 +43,28 @@ function TableComponent({ tableHeaders, data, rows, category }) {
           {category === "enrollment" && "latest enrollments"}
           {category === "course" && "Course List"}
         </p>
-        {!showAllRecords && (
+        {category === "course" ? (
+          <div className="w-80 flex bg-white border border-gray-400 rounded-md p-1 items-center justify-center">
+            <label htmlFor="searchbox">
+              <img src={searchIcon} className="w-6" />
+            </label>
+            <Input
+              type="text"
+              name="searchbox"
+              placeholder="Search"
+              className="focus:outline-none border-none"
+              onChange={(e) => handleChange(e)}
+              style={{ outline: "none !important" }}
+            />
+          </div>
+        ) : !showAllRecords && (category === "enrollment" || "student") ? (
           <button
             onClick={toggleShowAllRecords}
             className="text-[#901E75] text-lg font-semibold"
           >
             View all {category}s
           </button>
-        )}
-        {showAllRecords && (
+        ) : (
           <button
             onClick={toggleShowAllRecords}
             className="text-[#901E75] text-lg font-semibold"

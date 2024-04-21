@@ -19,7 +19,6 @@ const Sidebar = () => {
   };
   useEffect(() => {
     if (!auth.isAuthenticated) {
-      console.log("Logged out");
       navigate("/");
     }
   }, [auth.isAuthenticated, navigate]);

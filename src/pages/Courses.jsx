@@ -12,10 +12,8 @@ const Courses = () => {
   const [toggle, setToggle] = useState(false);
   const dispatch = useDispatch();
   const courses = useSelector((state) => state.courses.courses);
-  console.log("courses in redux", courses);
+
   localStorage.setItem("courses", JSON.stringify(courseData.courseList));
-  const storedCourses = JSON.parse(localStorage.getItem("courses"));
-  console.log("storedCourses outside", storedCourses);
 
   const [coursesState, setCoursesState] = useState();
 
@@ -41,6 +39,7 @@ const Courses = () => {
         <Sidebar />
       </div>
       <div className="flex flex-col w-full flex-grow ml-32 m-8 ">
+        <h1 className="text-3xl font-semibold mb-8 text-[#83858B]">Courses</h1>
         {coursesState && (
           <div className="">
             <TableComponent
